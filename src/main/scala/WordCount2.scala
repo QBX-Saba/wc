@@ -20,6 +20,8 @@ object WordCount2 {
     val counts = splits.reduceByKey((x,y)=>x+y)
 
     counts.saveToCassandra("sentencesks", "wordcount", SomeColumns("word", "count"))
+    spark.stop()
+    sys.exit(0)
 
   }
 }
