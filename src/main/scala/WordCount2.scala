@@ -13,11 +13,16 @@ object WordCount2 {
 
     val sc = spark.sparkContext
     val sentences = sc.cassandraTable[(String)]("sentencesks", "sentences").select("sentence")
+    sentences.foreach(s=>{println(s)})
 
     val textRDD = sc.parallelize(List(sentences.fold("")((f: String, s: String) => f + s)))
+    textRDD.foreach(s=>{println(s)})
 
     val splits = textRDD.flatMap(line => line.split(" ")).map(word =>(word,1))
+    splits.foreach(s=>{println(s)})
+
     val counts = splits.reduceByKey((x,y)=>x+y)
+    counts.foreach(s=>{println(s)})
 
     counts.saveToCassandra("sentencesks", "wordcount", SomeColumns("word", "count"))
     spark.stop()
