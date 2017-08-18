@@ -3,13 +3,15 @@ name := "dse-spark-cassandra-test"
 version := "1.0"
 scalaVersion := "2.11.8"
 
-import AssemblyKeys._ // put this at the top of the file
+import AssemblyKeys._
+import sbt.Keys.mainClass // put this at the top of the file
 
 assemblySettings
 
 lazy val root = (project in file(".")).
   settings(
-    mainClass in Compile := Some("WordCount2")
+    mainClass in Compile := Some("StreamingTest"),
+    mainClass in assembly := Some("StreamingTest")
   )
 
 
