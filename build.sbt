@@ -24,7 +24,9 @@ libraryDependencies ++= Seq(
   "org.apache.spark" % "spark-sql_2.11" % "2.2.0",
   "datastax" % "spark-cassandra-connector" % "2.0.3-s_2.11",
   "org.apache.spark" % "spark-streaming_2.11" % "2.0.1",
-  "org.apache.spark" % "spark-streaming-mqtt-assembly_2.10" % "1.6.3"
+  "org.apache.spark" % "spark-streaming-mqtt-assembly_2.10" % "1.6.3"  % "provided"
 
 )
+
+
 
