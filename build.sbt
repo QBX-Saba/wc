@@ -10,8 +10,7 @@ assemblySettings
 
 lazy val root = (project in file(".")).
   settings(
-    mainClass in Compile := Some("StreamingTest"),
-    mainClass in assembly := Some("StreamingTest")
+    mainClass in Compile := Some("StreamingTest")
   )
 
 
